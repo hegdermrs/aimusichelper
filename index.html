@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aimusichelper — Vocal Practice Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/meyda@5.6.3/dist/web/meyda.min.js"></script>
+    <script src="https://unpkg.com/pitchfinder@2.3.2/dist/pitchfinder.min.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Vocal Practice Lab</h1>
+        <p>Real-time feedback while you sing. AI coaching comes after recording.</p>
+      </header>
+
+      <section class="controls">
+        <button id="startBtn">Start Microphone</button>
+        <button id="stopBtn" disabled>Stop</button>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Pitch</h2>
+          <p class="value"><span id="pitchHz">--</span> Hz · <span id="noteName">--</span></p>
+          <canvas id="pitchCanvas" width="540" height="120"></canvas>
+        </article>
+
+        <article class="card">
+          <h2>Stability / Wobble</h2>
+          <p class="value"><span id="stabilityValue">--</span></p>
+          <div class="meter"><div id="stabilityBar"></div></div>
+        </article>
+
+        <article class="card">
+          <h2>Volume Consistency</h2>
+          <p class="value">RMS: <span id="rmsValue">--</span></p>
+          <div class="meter"><div id="volumeBar"></div></div>
+        </article>
+
+        <article class="card">
+          <h2>Airflow Proxy (Breathy ↔ Clean)</h2>
+          <p class="value"><span id="airflowValue">--</span></p>
+          <div class="meter"><div id="airflowBar"></div></div>
+        </article>
+
+        <article class="card">
+          <h2>Sustain Timer</h2>
+          <p class="value" id="sustainTimer">0.00s</p>
+          <small>Starts when pitch exists and stays stable.</small>
+        </article>
+      </section>
+
+      <section class="notes card">
+        <h2>Post-Processing AI Pipeline (planned)</h2>
+        <ol>
+          <li>Record synced audio + video.</li>
+          <li>Upload data and extracted timeline features.</li>
+          <li>Run AI coaching (technique feedback, homework, references).</li>
+        </ol>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
